@@ -10,9 +10,22 @@ const productos = [
     {nombre: "8kg de helado", precio: 14500},
     {nombre: "9kg de helado", precio: 16000},
     {nombre: "10kg de helado", precio: 17000},
-    {nombre: "conos para rellenar", precio: 200},
+    {nombre: "conos para rellenar x5", precio: 250},
     {nombre: "salsa de frutilla", precio: 100},
     {nombre: "salsa de chocolate", precio: 100},
+];
+const listSabores = [
+    {nombre: "frutilla"},
+    {nombre: "chocolate"},
+    {nombre: "menta"},
+    {nombre: "naranja al agua"},
+    {nombre: "orea"},
+    {nombre: "tiramisu"},
+    {nombre: "kit kat"},
+    {nombre: "sambayon"},
+    {nombre: "banana split"},
+    {nombre: "dulce de leche"},
+    {nombre: "flan"},
 ];
 let carrito = []
 
@@ -27,7 +40,8 @@ while(seleccion != "si" && seleccion != "no"){
 // declaramos una condicion en caso de que el usuario responda que si
 // creamos una variable que nos lea la constante "productos" en el orden y con los caracteres que agreguemos
 if(seleccion == "si"){
-    alert("esta es nuestra lista de productos y precio")
+    let clienteNombre = prompt("Ingresa tu nombre");
+    alert(clienteNombre + "!" + " " + "esta es nuestra lista de productos y precio")
     let listaDeProductos = productos.map(
         (producto) => producto.nombre + " " + "$" + producto.precio );
         alert(listaDeProductos.join(" - "));
@@ -83,7 +97,7 @@ while(seleccion != "no"){
                 break;
 
             case "conos para rellenar":
-                precio = 200;
+                precio = 250;
                 break;
 
             case "salsa de frutilla":
@@ -94,9 +108,13 @@ while(seleccion != "no"){
                 precio = 100;
                 break;
         }
-    let unidades = parseInt(prompt("cuantas unidades quiere llevar?"))
+        alert("esta es nuestra lista de sabores")
+        let listaDeSabores = listSabores.map(
+            (listSabores) => listSabores.nombre);
+            alert(listaDeSabores.join(" - "));
+    let sabores = prompt("que sabores de helado vas a llevar? solo puedes elegir 4")
 
-    carrito.push({producto, unidades, precio})    //almacena la compra del usuario en el carrito
+    carrito.push({producto, sabores, precio})    //almacena la compra del usuario en el carrito
     console.log(carrito)
     } else {
         alert("no tenemos ese producto") //en caso de que elija un producto que no esta disponible
@@ -108,56 +126,12 @@ while(seleccion != "no"){
         alert("gracias por elegirnos!, disfruta tu compra");
 
         carrito.forEach((carritoFinal) => {  //almacenamos las unidades y los precios en carrito para calcular el precio final
-            console.log('producto: ${carritoFinal.producto}, unidades: {carritoFinal.unidades}, precio final por pruducto ${carritoFinal.unidades * carritoFinal.precio}')
+            console.log('producto: ${carritoFinal.producto}, sabores: ${carritoFinal.sabores}, precio final por pruducto ${carritoFinal.unidades * carritoFinal.precio}')
         })
     break;
     }
 }
 // usamos acumuladores y ponemos el precio y unidad dentro del acumulador
-const total = carrito.reduce((acc, el) => + el.precio * el.unidades, 0);
-alert("el precio total es" + " " + "$" + total);
+const total = carrito.reduce((acc, el) => + el.precio * 1, 0)
+console.log('el precio total es: ${total}');
 
-// function sabores2() {
-//     let elige2Sbores = prompt("elegi 2 sabores, las opciones son: chocolate, frutilla, menta granizada, banana split, melon, naranja");
-
-//     if (elige2Sbores === "chocolate") {
-//         alert("elegi el siguiente sabor");
-//     } else {
-//         alert("sabor no valido");
-//     }
-// }
-
-// let cantidadPedido = Number(prompt("¿Cuántos kilos de helado vas a pedir?"));
-
-// if (cantidadPedido < 3 ) {
-//     sabores2();
-// } else if (cantidadPedido < 5 ){
-//     alert("tenemos esa cantidad, elegi tus sabores");
-// } else if (cantidadPedido < 7){
-//     alert(sabores4());
-// } else if (cantidadPedido <= 10){
-//     alert(sabores5);
-// } else {
-//     alert("no vendemos esa cantidad");
-// }
-
-
-
-// function sabores4() {
-//     let sabores4 = prompt("elegi 4 sabores, las opciones son: chocolate, frutilla, menta granizada, banana split, melon, naranja");
-
-//     if (sabores4 === "chocolate", "frutilla", "menta", "granizada", "banana", "split", "melon", "naranja") {
-//         alert("elegi el seguiente sabor");
-//     } else {
-//         alert("sabor no valido");
-//     }
-// }
-// function sabores5() {
-//     let sabores5 = prompt("elegi 5 sabores, las opciones son: chocolate, frutilla, menta granizada, banana split, melon, naranja");
-
-//     if (sabores5 === "chocolate", "frutilla", "menta", "granizada", "banana", "split", "melon", "naranja") {
-//         alert("elegi el seguiente sabor");
-//     } else {
-//         alert("sabor no valido");
-//     }
-// }
