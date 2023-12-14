@@ -47,7 +47,7 @@ if(seleccion == "si"){
 
 // si el usuario pueda elegir los productos y mientras calcular las unidades y el costo
 while(seleccion != "no"){
-    let producto = prompt("elegi de a un producto que vas a llevar").toLowerCase();
+    let producto = prompt("elegi de a un producto que vas a llevar").toLowerCase()
     let precio = 0
 
     if(producto == "helado" || producto == "conos healdo" || producto == "taza helado" || producto == "jugo helado" || producto == "postre helado" || producto == "batido helado" || producto == "conos para rellenar" || producto == "salsa de frutilla" || producto == "salsa de chocolate"){
@@ -93,30 +93,34 @@ while(seleccion != "no"){
 
     alert("esta es nuestra lista de sabores")
     let listaDeSabores = listSabores.map(
-        (listSabores) => listSabores.nombre);
-        alert(listaDeSabores.join(" - "));
+        (listSabores) => listSabores.nombre)
+        alert(listaDeSabores.join(" - "))
 
     let sabores = prompt("que sabores de helado vas a llevar? puedes elegir hasta 4")
 
-    carrito.push({producto, sabores, unidades,precio})    //almacena la compra del usuario en el carrito
+    //almacena la compra del usuario en el carrito //en caso de que elija un producto que no esta disponible se lo mencionamos
+    carrito.push({producto, sabores, unidades, precio})    
     console.log(carrito)
     } else {
-        alert("no tenemos ese producto") //en caso de que elija un producto que no esta disponible
+        alert("no tenemos ese producto") 
     }
 
-    seleccion = prompt("deseas comprar algo mas?").toLowerCase();
+    seleccion = prompt("deseas comprar algo mas?")
 
     while(seleccion === "no"){
-        alert("gracias por elegirnos!, disfruta tu compra");
+        alert("gracias por elegirnos!, disfruta tu compra")
+    
+        
 
-        carrito.forEach((carritoFinal) => {  //almacenamos las unidades y los precios en carrito para calcular el precio final
+//almacenamos las unidades y los precios en carrito para calcular el precio final
+        carrito.forEach((carritoFinal) => {  
             console.log(`producto: ${carritoFinal.producto}, sabores: ${carritoFinal.sabores}, unidades: ${carritoFinal.unidades}, precio final por pruducto: ${carritoFinal.unidades * carritoFinal.precio}`)
         })
     break;
     }
 }
 // usamos acumuladores y ponemos el precio y unidad dentro del acumulador
-const total = carrito.reduce((acc, el) => + el.precio * el.unidades, 0)
+const total = carrito.reduce((acc, el) => acc + el.precio * el.unidades, 0)
 console.log(`el precio total es: ${total}`);
 alert("el precio total es:" + " " + "$" + total);
 
