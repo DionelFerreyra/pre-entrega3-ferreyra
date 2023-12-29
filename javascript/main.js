@@ -15,7 +15,7 @@ const listSabores = [
     {nombre: "chocolate"},
     {nombre: "menta"},
     {nombre: "naranja al agua"},
-    {nombre: "orea"},
+    {nombre: "oreo"},
     {nombre: "tiramisu"},
     {nombre: "kit kat"},
     {nombre: "sambayon"},
@@ -89,18 +89,18 @@ while(seleccion != "no"){
                 break;
         }
 
-    let unidades = parseInt(prompt("cauntas unidades vas a llevar?"))
+        let unidades = parseInt(prompt("cauntas unidades vas a llevar?"))
 
-    alert("esta es nuestra lista de sabores")
-    let listaDeSabores = listSabores.map(
-        (listSabores) => listSabores.nombre)
-        alert(listaDeSabores.join(" - "))
+        alert("esta es nuestra lista de sabores")
+        let listaDeSabores = listSabores.map(
+            (listSabores) => listSabores.nombre)
+            alert(listaDeSabores.join(" - "))
+    
+        let sabores = prompt("que sabores de helado vas a llevar? puedes elegir hasta 4")
 
-    let sabores = prompt("que sabores de helado vas a llevar? puedes elegir hasta 4")
-
-    //almacena la compra del usuario en el carrito //en caso de que elija un producto que no esta disponible se lo mencionamos
-    carrito.push({producto, sabores, unidades, precio})    
-    console.log(carrito)
+        //almacena la compra del usuario en el carrito //en caso de que elija un producto que no esta disponible se lo mencionamos
+        carrito.push({producto, sabores, unidades, precio})    
+        console.log(carrito)
     } else {
         alert("no tenemos ese producto") 
     }

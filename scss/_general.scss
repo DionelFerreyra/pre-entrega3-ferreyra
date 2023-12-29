@@ -1,0 +1,25 @@
+body {
+    h1 {
+        font-style: italic;
+        font-size: 50px;
+        color: nth($text-color, 2);
+    }
+    a {
+        text-decoration: none;
+    }
+    .section_1 {
+        margin: calc($margin * 3 / 2);
+        border-radius: $border-radius;
+        background-color: nth($text-color, 2);
+        width: 93%;
+        height: 20vh;
+
+        img {
+            width: 70px;
+            height: 70px;
+            margin-top: 30px;
+            position: absolute;
+            left: 5px;
+        }
+    }
+}
